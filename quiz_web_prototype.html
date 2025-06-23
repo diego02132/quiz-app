@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Educativo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+    .pantalla {
+      display: none;
+    }
+    .activa {
+      display: block;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .opcion {
+      display: block;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla 1: Bienvenida -->
+  <div id="pantalla1" class="pantalla activa">
+    <h1>🎓 Desafía tu mente</h1>
+    <button class="btn" onclick="mostrarPantalla(2)">Empezar</button>
+  </div>
+
+  <!-- Pantalla 2: Categorías -->
+  <div id="pantalla2" class="pantalla">
+    <h2>Elige una categoría</h2>
+    <button class="btn" onclick="mostrarPantalla(3)">Cultura General</button>
+    <button class="btn" onclick="mostrarPantalla(3)">Historia</button>
+    <button class="btn" onclick="mostrarPantalla(3)">Ciencia</button>
+  </div>
+
+  <!-- Pantalla 3: Pregunta -->
+  <div id="pantalla3" class="pantalla">
+    <h2>¿Cuál es la capital de Australia?</h2>
+    <label class="opcion"><input type="radio" name="q1"> Sydney</label>
+    <label class="opcion"><input type="radio" name="q1"> Canberra</label>
+    <label class="opcion"><input type="radio" name="q1"> Melbourne</label>
+    <label class="opcion"><input type="radio" name="q1"> Brisbane</label>
+    <br>
+    <button class="btn" onclick="mostrarPantalla(4)">Responder</button>
+  </div>
+
+  <!-- Pantalla 4: Resultados -->
+  <div id="pantalla4" class="pantalla">
+    <h2>¡Completaste el quiz!</h2>
+    <p>Puntaje: 1/1 ✅</p>
+    <button class="btn" onclick="mostrarPantalla(1)">Volver al inicio</button>
+  </div>
+
+  <script>
+    function mostrarPantalla(n) {
+      const pantallas = document.querySelectorAll('.pantalla');
+      pantallas.forEach(p => p.classList.remove('activa'));
+      document.getElementById('pantalla' + n).classList.add('activa');
+    }
+  </script>
+</body>
+</html>
